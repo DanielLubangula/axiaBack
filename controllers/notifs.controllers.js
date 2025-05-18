@@ -1,6 +1,6 @@
 
 const Depot = require('../models/deposit'); // attention au nom du modèle
-const Retrait = require('../models/Retraits'); // attention au nom du modèle
+const Retrait = require('../models/retraits'); // attention au nom du modèle
 
 exports.getUserDepots = async (req, res) => {
   try {

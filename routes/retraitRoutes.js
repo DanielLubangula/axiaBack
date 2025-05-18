@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Withdrawal = require('../models/Retraits');
+const Withdrawal = require('../models/retraits');
 const User = require('../models/user');
 const auth = require('../middlewares/auth');
 const isAdmin = require('../middlewares/isAdmin'); // Middleware pour vérifier si l'utilisateur est admin

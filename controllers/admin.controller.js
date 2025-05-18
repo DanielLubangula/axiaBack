@@ -68,7 +68,7 @@ exports.getDashboardStats = async (req, res) => {
 };
 
 const Depot = require('../models/deposit')
-const Retrait = require('../models/Retraits')
+const Retrait = require('../models/retraits')
 
 exports.infoUser = async (req, res) => {
   try {
