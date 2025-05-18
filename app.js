@@ -29,6 +29,9 @@ app.use('/api/user', userController);
 app.use('/api/admin', adminRoutes);
 app.use('/notification', notifRoutes)
 app.use('/api/retrait', retrait)
+app.get('/', (req, res) => {
+  res.send('Bienvenue sur notre application d\'investissement !');
+});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
