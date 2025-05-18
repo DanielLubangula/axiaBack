@@ -2,7 +2,7 @@
 const jwt = require('jsonwebtoken');
 const Deposit = require('../models/deposit');
 const Withdrawal = require('../models/withdrawal');
-const User = require('../models/user')
+const User = require('../models/user');
 
 exports.adminLogin = async (req, res) => {
   try {
