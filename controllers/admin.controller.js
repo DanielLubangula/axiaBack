@@ -2,7 +2,7 @@
 const jwt = require('jsonwebtoken');
 const Deposit = require('../models/deposit');
 const Withdrawal = require('../models/withdrawal');
-const User = require('../models/user');
+const User = require('../models/User');
 
 exports.adminLogin = async (req, res) => {
   try {
@@ -68,7 +68,7 @@ exports.getDashboardStats = async (req, res) => {
 };
 
 const Depot = require('../models/deposit')
-const Retrait = require('../models/retraits')
+const Retrait = require('../models/Retraits')
 
 exports.infoUser = async (req, res) => {
   try {

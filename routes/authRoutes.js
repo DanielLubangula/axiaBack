@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { register, login, getMe } = require('../controllers/authController');
 const auth = require('../middlewares/auth');
-const User = require('../models/user'); // Assurez-vous que le modèle User est correctement importé
+const User = require('../models/User'); // Assurez-vous que le modèle User est correctement importé
 // Routes publiques
 router.post('/register', register);
 router.post('/login', login);

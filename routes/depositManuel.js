@@ -4,7 +4,7 @@ const multer = require('multer');
 const path = require('path');
 const { getDepot } = require('../controllers/depositController');
 const auth = require('../middlewares/auth');
-const User = require('../models/user')
+const User = require('../models/User')
 
 // config multer
 const storage = multer.diskStorage({
