@@ -54,14 +54,14 @@ exports.login = async (req, res) => {
     const user = await User.findOne({ email });
     if (!user) return res.status(404).json({ message: 'Utilisateur introuvable' });
 
-    
+    const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(400).json({ message: 'Mot de passe incorrect' });
 
     const usertoken = {
         username : user.username,
         email : user.email,
         role : user.role 
-    }
+    } 
 
     res.json({
       message: 'Connexion réussie',
@@ -70,7 +70,8 @@ exports.login = async (req, res) => {
       email : user.email
     });
   } catch (err) {
-    res.statusSZ(500).json({ message: 'Erreur serveur', error: err.message });
+    res.status(500).json({ message: 'Erreur serveur', error: err.message });
+    console.log("Erreur lors de la connexion utilisateur",err)
   }
 };
 
