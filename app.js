@@ -19,9 +19,9 @@ const app = express();
 app.use(cors());
 app.use('/static', express.static(path.join(__dirname, 'public'))); 
 app.use(express.urlencoded({ extended: true })); 
-app.use(express.json());
+app.use(express.json()); 
 
-app.use('/api/auth', authRoutes);
+app.use('/api/auth', authRoutes); 
 app.use('/api/plans', planRoutes);
 app.use('/api/deposits/manual', depositManuel);
 app.use('/api/subscriptions', subscriptionRoutes);
