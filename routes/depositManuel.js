@@ -5,24 +5,25 @@ const path = require('path');
 const { getDepot } = require('../controllers/depositController');
 const auth = require('../middlewares/auth');
 const User = require('../models/User')
+const uploadProof = require('../middlewares/uploadImage')
 
 // config multer
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, '../public/uploads'));
-  },
-  filename: function (req, file, cb) {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    cb(null, uniqueSuffix + path.extname(file.originalname));
-  }
-});
-const upload = multer({ storage });
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, path.join(__dirname, '../public/uploads'));
+//   },
+//   filename: function (req, file, cb) {
+//     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+//     cb(null, uniqueSuffix + path.extname(file.originalname));
+//   }
+// }); 
+// const upload = multer({ storage });
 
 // Route POST
-router.post('/:id',auth, upload.single('paymentProof'), getDepot);
+router.post('/:id',uploadProof,auth, getDepot);
 
 const Depot = require('../models/deposit');
-
+ 
 router.get('/', async (req, res) => {
   try {
     const all = await Depot.find({})
